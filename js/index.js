@@ -3,7 +3,8 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
     // レンダラーを作成
     const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#canvas')
+        canvas: document.querySelector('#canvas'),
+        alpha: true,
     });
     // ウィンドウサイズ設定
     width = document.getElementById('main_canvas').getBoundingClientRect().width;
@@ -15,6 +16,7 @@ function init() {
 
     // シーンを作成
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x87B8C0 ); // 背景色
 
     // カメラを作成
     camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
@@ -26,14 +28,17 @@ function init() {
     const loader = new THREE.GLTFLoader();
     const url = 'https://ryoryo1192.github.io/webobj001/webobj.glb';
 
+    // window size
+    const w_height = window.innerHeight;
+
     let model = null;
     loader.load(
         url,
         function (gltf) {
             model = gltf.scene;
             // model.name = "model_with_cloth";
-            model.scale.set(400.0, 400.0, 400.0);
-            model.position.set(0, -400, 0);
+            model.scale.set(100.0, 100.0, 100.0);
+            model.position.set(0, (w_height / 3 * -1), 0);
             scene.add(gltf.scene);
 
             // model["test"] = 100;
@@ -49,10 +54,15 @@ function init() {
 
     // 平行光源
     const light = new THREE.DirectionalLight(0xFFFFFF);
-    light.intensity = 2; // 光の強さを倍に
-    light.position.set(1, 1, 1);
+    light.intensity = 1; // 光の強さ
+    light.position.set(3, 10, 1);
     // シーンに追加
     scene.add(light);
+
+
+    //環境光源(アンビエントライト)：すべてを均等に照らす、影のない、全体を明るくするライト
+    const ambient = new THREE.AmbientLight(0xf8f8ff, 0.7);
+    scene.add(ambient); //シーンにアンビエントライトを追加
 
     // 初回実行
     tick();

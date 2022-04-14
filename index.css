@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  top: 0;
-  left: 0;
+@charset "UTF-8";
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
-#canvas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+body {
+    width : 100%;
+    height : 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#main_canvas {
+    width : 100%;
+    height : 100%;
+    margin: 0;
+    padding: 0;
 }

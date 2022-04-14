@@ -24,7 +24,7 @@ function init() {
 
     // Load GLTF or GLB
     const loader = new THREE.GLTFLoader();
-    const url = 'http://localhost:8080/webobj.glb';
+    const url = 'https://ryoryo1192.github.io/webobj001/webobj.glb';
 
     let model = null;
     loader.load(

@@ -20,7 +20,7 @@ function init() {
 
     // カメラを作成
     camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-    camera.position.set(0, 400, -1000);
+    camera.position.set(0, 200, -1000);
 
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
@@ -37,7 +37,7 @@ function init() {
         function (gltf) {
             model = gltf.scene;
             // model.name = "model_with_cloth";
-            model.scale.set(200.0, 200.0, 200.0);
+            model.scale.set(300.0, 300.0, 300.0);
             model.position.set(0, (w_height / 3 * -1), 0);
             scene.add(gltf.scene);
 

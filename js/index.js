@@ -37,7 +37,7 @@ function init() {
         function (gltf) {
             model = gltf.scene;
             // model.name = "model_with_cloth";
-            model.scale.set(50.0, 50.0, 50.0);
+            model.scale.set(200.0, 200.0, 200.0);
             model.position.set(0, (w_height / 3 * -1), 0);
             scene.add(gltf.scene);
 
